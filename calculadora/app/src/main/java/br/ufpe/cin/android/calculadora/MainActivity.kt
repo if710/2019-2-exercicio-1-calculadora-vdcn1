@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //tirar o app bar quando a orientação for horizontal
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
 
+        //finds e listeners
         expr = findViewById(R.id.text_calc)
         info = findViewById(R.id.text_info)
         val btn_9 : Button = findViewById(R.id.btn_9)
@@ -87,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //salvando o estado quando muda de configuração
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString("result", info_result)
